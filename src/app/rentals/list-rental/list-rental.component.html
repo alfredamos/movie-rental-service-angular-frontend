@@ -1,0 +1,52 @@
+<div class="border pado">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="text-center">Rental List</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-responsive table bordered table-striped">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Movie</th>
+            <th>Rental Fee</th>
+            <th>Date Return</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rental of rentals$ | async">
+            <td>
+              <a
+                class="text-decor"
+                routerLink="/detail-rental/{{ rental.id }}"
+                >{{ rental.customer?.name }}</a
+              >
+            </td>
+            <td>{{ rental.movie?.title }}</td>
+            <td>{{ rental.rentalFee }}</td>
+            <td>{{ rental.dateReturn }}</td>
+
+            <td>
+              <a
+                class="btn btn-outline-warning m-1"
+                routerLink="/edit-rental/{{ rental.id }}"
+                >Edit</a
+              >
+              <a
+                class="btn btn-outline-danger m-1"
+                routerLink="/delete-rental/{{ rental.id }}"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-outline-secondary form-control" routerLink="/add-rental"
+        >Add Rental</a
+      >
+    </div>
+  </div>
+</div>

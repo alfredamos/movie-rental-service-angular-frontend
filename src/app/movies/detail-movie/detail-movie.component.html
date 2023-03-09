@@ -1,0 +1,19 @@
+<div class="border pado" *ngIf="movie$ | async as movie">
+  <div class="card">
+ <div class="card-header">
+  <h4 class="text-center">Movie Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Title : {{movie.title}}</li>
+      <li class="list-group-item">Genre : {{movie.genre?.name}}</li>
+      <li class="list-group-item">Stock : {{movie.numberInStock}}</li>
+      <li class="list-group-item">Fee : {{movie.dailyRentalRate}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-secondary form-control" routerLink="/movies">Back</a>
+  </div>
+  </div>
+</div>
+

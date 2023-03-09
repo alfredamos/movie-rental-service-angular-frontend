@@ -1,0 +1,29 @@
+<div class="border pado" *ngIf="!showDeleteItem">
+  <div class="card">
+ <div class="card-header" *ngIf="movie$ | async as movie">
+  <h4 class="text-center">Movie Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Name : {{movie.title}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-warning form-control m-1" routerLink="/edit-movie/{{movie.id}}">Edit</a>
+    <a class="btn btn-outline-secondary form-control m-1" routerLink="/movies">Back</a>
+    <button class="btn btn-outline-danger form-control m-1" (click)="deleteClick()">Delete</button>
+  </div>
+  </div>
+</div>
+<app-delete-item
+  *ngIf="showDeleteItem"
+  [deleteMessage]="deleteMessage"
+  [deleteTitle]="deleteTitle"
+  submitButton="Delete"
+  cancelButton="Cancel"
+  (onDeleteSubmit)="deleteMovie($event)"
+>
+</app-delete-item>
+
+
+

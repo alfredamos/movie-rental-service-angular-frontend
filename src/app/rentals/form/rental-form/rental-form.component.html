@@ -1,0 +1,54 @@
+<div class="border pado">
+  <div class="card">
+    <form [formGroup]="rentalForm" (ngSubmit)="rentalSubmit()">
+      <div class="card-header">
+        <h4 class="text-center">Rental {{formName}} Form</h4>
+      </div>
+      <div class="card-body">      
+        <div class="mb-3">
+          <label class="form-label" for="customerId">Customers</label>
+          <select
+            id="customerId"
+            type="text"
+            formControlName="customerId"
+            class="form-select"
+        >
+        <option>Please delect the customer</option>
+        <option *ngFor="let customer of customers$ | async" [value]="customer.id" [id]="customer.id">
+          {{customer.name}}
+        </option>
+        </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="movieId">Movies</label>
+          <select
+            id="movieId"
+            type="text"
+            formControlName="movieId"
+            class="form-select"
+        >
+        <option>Please select the movie</option>
+        <option *ngFor="let movie of movies$ | async" [value]="movie.id" [id]="movie.id">
+          {{movie.title}}
+        </option>
+        </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="rentalFee">Rental Fee</label>
+          <input
+            id="rentalFee"
+            type="number"
+            formControlName="rentalFee"
+            class="form-control"
+          />
+        </div>        
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-outline-primary form-control m-1">Submit</button>
+        <button type="button" class="btn btn-outline-secondary form-control m-1" (click)="backToList()">Back</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

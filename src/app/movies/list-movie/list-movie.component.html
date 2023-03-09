@@ -1,0 +1,36 @@
+<div class="border pado">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="text-center">Movie List</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-responsive table bordered table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Rental rate</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies$ | async">
+            <td><a class="text-decor" routerLink="/detail-movie/{{movie.id}}">{{movie.title}}</a></td>
+            <td>{{movie.genre?.name}}</td>
+            <td>{{movie.numberInStock}}</td>
+            <td>{{movie.dailyRentalRate}}</td>
+            <td>
+              <a class="btn btn-outline-warning m-1" routerLink="/edit-movie/{{movie.id}}">Edit</a>
+              <a class="btn btn-outline-danger m-1" routerLink="/delete-movie/{{movie.id}}">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-outline-secondary form-control" routerLink="/add-movie">Add Movie</a>
+    </div>
+  </div>
+</div>
+

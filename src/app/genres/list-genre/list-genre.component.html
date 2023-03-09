@@ -1,0 +1,30 @@
+<div class="border pado">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="text-center">Genre List</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-responsive table bordered table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let genre of genres$ | async">
+            <td><a class="text-decor" routerLink="/detail-genre/{{genre.id}}">{{genre.name}}</a></td>
+            <td>
+                    <a class="btn btn-outline-warning m-1" routerLink="/edit-genre/{{genre?.id}}">Edit</a>
+              <a class="btn btn-outline-danger m-1" routerLink="/delete-genre/{{genre.id}}">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-outline-secondary form-control" routerLink="/add-genre">Add Customer</a>
+    </div>
+  </div>
+</div>
+

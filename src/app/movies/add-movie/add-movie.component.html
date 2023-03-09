@@ -1,0 +1,9 @@
+<app-movie-form
+  [movieForm]="movieForm"
+  [genres$] = "genres$"
+  formName="Create"
+  (onMovieSubmit)="movieSubmit($event)"
+  (onBackToList)="backToList()"
+>
+</app-movie-form>
+

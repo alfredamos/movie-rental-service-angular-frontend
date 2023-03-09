@@ -1,0 +1,59 @@
+<div class="border pado">
+  <div class="card">
+    <form [formGroup]="movieForm" (ngSubmit)="movieSubmit()">
+      <div class="card-header">
+        <h4 class="text-center">Movie {{formName}} Form</h4>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label class="form-label" for="title">Title</label>
+          <input
+            id="title"
+            type="text"
+            formControlName="title"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="genreId">Genres</label>
+          <select
+            id="genreId"
+            type="text"
+            formControlName="genreId"
+            class="form-select"
+        >
+        <option>Please delect the genre</option>
+        <option *ngFor="let genre of genres$ | async" [value]="genre.id" [id]="genre.id">
+          {{genre.name}}
+        </option>
+        </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="numberInStock">Number in stock</label>
+          <input
+            id="numberInStock"
+            type="number"
+            formControlName="numberInStock"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="dailyRentalRate"
+            >Daily rental rate</label
+          >
+          <input
+            id="dailyRentalRate"
+            type="number"
+            formControlName="dailyRentalRate"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-outline-primary form-control m-1">Submit</button>
+        <button type="button" class="btn btn-outline-secondary form-control m-1" (click)="backToList()">Back</button>
+      </div>
+    </form>
+  </div>
+</div>
+

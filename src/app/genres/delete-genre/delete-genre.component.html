@@ -1,0 +1,29 @@
+<div class="border pado" *ngIf="!showDeleteItem">
+  <div class="card">
+ <div class="card-header" *ngIf="genre$ | async as genre">
+  <h4 class="text-center">Genre Detail</h4>
+ </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Name : {{genre.name}}</li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-outline-warning form-control m-1" routerLink="/edit-genre/{{genre.id}}">Edit</a>
+    <a class="btn btn-outline-secondary form-control m-1" routerLink="/genres">Back</a>
+    <button class="btn btn-outline-danger form-control m-1" (click)="deleteClick()">Delete</button>
+  </div>
+  </div>
+</div>
+<app-delete-item
+  *ngIf="showDeleteItem"
+  [deleteMessage]="deleteMessage"
+  [deleteTitle]="deleteTitle"
+  submitButton="Delete"
+  cancelButton="Cancel"
+  (onDeleteSubmit)="deleteGenre($event)"
+>
+</app-delete-item>
+
+
+
